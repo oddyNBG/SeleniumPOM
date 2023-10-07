@@ -5,21 +5,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LogInPage {
+public class LoginPage {
 
     public WebDriver driver;
     public WebDriverWait wait;
-
-    WebElement userNameField;
+    WebElement usernameField;
     WebElement passwordField;
     WebElement submitButton;
+    WebElement errorMessage;
 
-    public LogInPage(WebDriver driver, WebDriverWait wait) {
+    public LoginPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }
 
-    public WebElement getUserNameField() {
+    public WebElement getUsernameField() {
         return driver.findElement(By.id("username"));
     }
 
@@ -31,11 +31,15 @@ public class LogInPage {
         return driver.findElement(By.id("submit"));
     }
 
-//    ***********************************************
+    public WebElement getErrorMessage() {
+        return driver.findElement(By.id("error"));
+    }
+
+    //    ******************************************************
 
     public void inputUsername(String username) {
-        getUserNameField().clear();
-        getUserNameField().sendKeys(username);
+        getUsernameField().clear();
+        getUsernameField().sendKeys(username);
     }
 
     public void inputPassword(String password) {
@@ -43,7 +47,7 @@ public class LogInPage {
         getPasswordField().sendKeys(password);
     }
 
-    public void clickOnSubmit() {
+    public void clickOnSubmitButton() {
         getSubmitButton().click();
     }
 

@@ -9,7 +9,8 @@ public class PracticePage {
 
     public WebDriver driver;
     public WebDriverWait wait;
-    WebElement TestLoginPageButton;
+    WebElement testLoginPageButton;
+
 
     public PracticePage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
@@ -18,11 +19,12 @@ public class PracticePage {
 
     public WebElement getTestLoginPageButton() {
         return driver.findElement(By.linkText("Test Login Page"));
-
-//        ***********************************************************
-
-        public void clickOnTestLogInButton() {
-            getTestLoginPageButton().click();
-        }
     }
+
+//    ***********************************************************
+
+    public void clickOnTestLoginButton() {
+        getTestLoginPageButton().click();
+    }
+
 }

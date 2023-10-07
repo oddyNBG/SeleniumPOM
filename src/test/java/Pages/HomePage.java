@@ -1,5 +1,6 @@
 package Pages;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,11 +22,9 @@ public class HomePage {
     }
 
 
-//    *******************************************************
+//    *********************************
 
-    public void clickOnPracticeButton() {
+    public void clickOnPracticeButton () {
         getPracticeButton().click();
     }
-
-
 }

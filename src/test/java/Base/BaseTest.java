@@ -1,6 +1,9 @@
-package AnotationBase;
+package Base;
 
-import AnnotationPages.HomePage;
+import Pages.HomePage;
+import Pages.LoginPage;
+import Pages.PracticePage;
+import Pages.ProfilePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,21 +15,26 @@ import java.time.Duration;
 
 public class BaseTest {
 
-    public static WebDriver driver;
+    public WebDriver driver;
     public WebDriverWait wait;
-
     public HomePage homepage;
+    public PracticePage practicePage;
+    public LoginPage loginPage;
+    public ProfilePage profilePage;
 
 
     @BeforeClass
     public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        homepage = new HomePage(driver, wait);
+        practicePage = new PracticePage(driver, wait);
+        loginPage = new LoginPage(driver, wait);
+        profilePage = new ProfilePage(driver, wait);
 
-        homepage = new HomePage();
     }
 
 
